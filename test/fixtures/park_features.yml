@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  park_id: 1
+  feature_id: 1
+  hours: MyString
+
+two:
+  park_id: 1
+  feature_id: 1
+  hours: MyString

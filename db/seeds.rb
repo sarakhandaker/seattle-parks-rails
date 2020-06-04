@@ -1,10 +1,9 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Park.destroy_all
+Feature.destroy_all
+ParkFeature.destroy_all
+
 require 'csv'
 
 array1=CSV.read("./data/Seattle_Parks.csv")
@@ -17,7 +16,6 @@ array3=CSV.read("./data/Seattle_Parks_And_Recreation_Park_Addresses.csv")
 ##array of arrays #each inner array [PMAID,LocID,Name,Address,ZIP Code,X Coord,Y Coord,Location 1]
 
 ## FROM ARRAY 1
-
 all_parks=[]
 
 array1.each {|park| all_parks<<{name: park[1], area: park[5]}}
@@ -47,8 +45,9 @@ all_parks.each do |park1|
     # end
 end
 
-# pp all_parks2
-pp all_parks2
+all_parks2.each { |park|
+    Park.create(name: park[:name], address: park[:address], latitude: park[:y], longitude: park[:x], area: park[:area])
+}
 
 ## FROM ARRAY 2
 
@@ -115,3 +114,17 @@ features=["Golf",
  "T-Ball",
  "Pickleball Court",
  "Flag Football"]
+
+ features.each { |feat|
+    Feature.create(name: feat)
+}
+
+array2.each do |row|
+##array of arrays #each inner array [pmaid, name, feature_desc, hours, xpos, ypos, Location]
+if Park.find_by(name: row[1].upcase) && Feature.find_by(name: row[2])
+    park=Park.find_by(name: row[1].upcase)
+    feature=Feature.find_by(name: row[2])
+    ParkFeature.create(park_id: park.id, feature_id: feature.id, hours: row[3])
+end
+
+end
