@@ -32,6 +32,15 @@ class ApplicationController < ActionController::API
             @user = User.find_by(id: user_id)
         end
     end
+
+    def check_user
+        if decoded_token
+          user_id = decoded_token[0]['user_id']
+          @user = User.find_by(id: user_id)
+        end
+        token = encode_token({ user_id: @user.id })
+        render json: { user: UserSerializer.new(@user), jwt: token }, status: :accepted
+    end
          
     def logged_in?
         !!current_user

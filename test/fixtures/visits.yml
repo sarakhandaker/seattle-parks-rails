@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2020-06-04 19:09:58
+  user_id: 1
+  park_id: 1
+  rating: 1
+  comment: MyString
+  photo: MyString
+  completed: false
+
+two:
+  date: 2020-06-04 19:09:58
+  user_id: 1
+  park_id: 1
+  rating: 1
+  comment: MyString
+  photo: MyString
+  completed: false

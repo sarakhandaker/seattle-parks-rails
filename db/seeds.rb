@@ -46,7 +46,8 @@ all_parks.each do |park1|
 end
 
 all_parks2.each { |park|
-    Park.create(name: park[:name], address: park[:address], latitude: park[:y], longitude: park[:x], area: park[:area])
+    Park.create(name: park[:name], seedAddress: park[:address], latitude: park[:y], longitude: park[:x], area: park[:area])
+    sleep 1
 }
 
 ## FROM ARRAY 2

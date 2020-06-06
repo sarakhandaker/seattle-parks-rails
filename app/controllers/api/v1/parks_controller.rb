@@ -3,12 +3,12 @@ class Api::V1::ParksController < ApplicationController
 
     def index 
         parks=Park.all
-        render json: parks.to_json( :include => [:features => {:only => :name}] ), status: :accepted
+        render json: parks.to_json( :include => [:features => {:only => :name}], :except => [:updated_at, :created_at, :address]), status: :accepted
     end
 
     def show 
-        # park=Park.find()
-        render json: ParkSerializer.new(park), status: :accepted
+        park=Park.find(params[:id])
+        render json: {park: ParkSerializer.new(park)} 
     end
 
 end
