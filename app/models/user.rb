@@ -19,7 +19,7 @@ class User < ApplicationRecord
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
     validates :email, presence: true
     validates :address, presence: true
-    validates :password, length: { in: 6..20 }
+    validates :password, length: { in: 6..20 } , on: :create
     validates_with AddressValidator
 
     #   def ordered_visits

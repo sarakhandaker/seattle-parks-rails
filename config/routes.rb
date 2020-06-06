@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get '/parks/:id', to: 'parks#show'
       post '/visits', to: 'visits#create'
       patch '/visits/:id', to: 'visits#update'
+      patch '/users/:id', to: 'users#update'
     end
   end
 end

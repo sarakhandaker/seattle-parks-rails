@@ -16,17 +16,14 @@ This project uses Ruby and Rails with a postgres database on the back end, and J
     * woeid=2490383 for Seattle, WA
 * Data from: http://data-seattlecitygis.opendata.arcgis.com/
 
-Things you may want to cover:
+* Ruby version '2.6.1'
 
-* Ruby version
-* System dependencies
-* Configuration
+## To Start
 * Database creation
     * rails db:create
 * Database initialization
     * rails db:migrate
     * rails db:seed
-* Deployment instructions
 
 ## Models
 ![alt text](/data/Models/jpg)
@@ -39,25 +36,25 @@ Things you may want to cover:
 
 * Parks
     * User can see a list of Seattle Parks (With Maps)
-    * User can filter through parks by neighbouhood, area, features, already visited
+    * User can filter through parks by /neighbouhood, /area, features, /already visited
     * User can see a specific Park and its details 
 
 * Saved List
-    * User can save parks they want to visit 
+    * /User can save parks they want to visit 
 
 * Visits
-    * User can post a new visit to a park (with comments, rating, photo)
-    * User can plan a visit in the future
-    * User can see and edit all past visits
-    * User can delete upcoming visit
+    * User can post a new visit to a park (with comments, rating)
+    * /User can plan a visit in the future
+    * User can see and /edit all past visits
+    * /User can delete upcoming visit
 
 * Weather
     * User can see the upcoming weather 
 
 * Data 
-    * User can see the busiest parks (density)
-    * User can see data on visits vs weather 
-    * User can see what percentage of the parks they have visited
+    * /User can see the busiest parks (density)
+    * /User can see data on visits vs weather 
+    * /User can see what percentage of the parks they have visited
 
 ## Color Pallete
 #2A3C2B
@@ -73,10 +70,8 @@ https://trello.com/b/BQ3YuPcK/mod-5-project
 
 ## Future Updates
 * Transit Information to Each Park
-* Embed Instagram Hashtags for Each Park
 * Google Maps Direction
 * Extras: Admin Account, notifications, new user walkthrough, share on social media, sounds, file uploads
 
 ## License
 This project is licensed under the GNU General Public License.
-
