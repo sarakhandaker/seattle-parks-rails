@@ -1,3 +1,6 @@
+require 'rest-client'
+require 'json'
+
 class Api::V1::UsersController < ApplicationController
     skip_before_action :authorized, only: [:create]
 
@@ -10,7 +13,11 @@ class Api::V1::UsersController < ApplicationController
 #            }
 #          })
 
-        render json: { user: UserSerializer.new(current_user)}, status: :accepted
+    url = 'https://www.metaweather.com/api/location/'+'2490383/'
+    response = RestClient.get(url)
+    weather=JSON.parse(response)
+
+        render json: { user: UserSerializer.new(current_user), weather: weather}, status: :accepted
     end
 
     def create
