@@ -8,4 +8,13 @@ class Park < ApplicationRecord
 
     reverse_geocoded_by :latitude, :longitude
     after_validation :reverse_geocode
+
+    def neighborhood 
+        results = Geocoder.search([self.latitude, self.longitude]).first
+        if results.neighbourhood
+            return results.neighbourhood
+        elsif results.suburb
+            return results.suburb
+        end
+    end
 end
