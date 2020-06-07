@@ -20,7 +20,7 @@ class ParkSerializer < ActiveModel::Serializer
   end
 
   def neigh
-    self.object.neighbourhood
+    self.object.neighborhood
   end
-  
+
 end
