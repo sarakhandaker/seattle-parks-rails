@@ -8,7 +8,8 @@ class Api::V1::ParksController < ApplicationController
 
     def show 
         park=Park.find(params[:id])
-        render json: {park: ParkSerializer.new(park)} 
+        saved=park.saved_parks.map{|s_p| s_p.user}.include?(current_user)
+        render json: {park: ParkSerializer.new(park), saved: saved} 
     end
 
 end
