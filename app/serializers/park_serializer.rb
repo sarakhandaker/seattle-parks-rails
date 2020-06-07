@@ -1,5 +1,5 @@
 class ParkSerializer < ActiveModel::Serializer
-  attributes :id, :latitude, :longitude, :name, :area, :address, :show_features, :show_visits, :neigh
+  attributes :id, :latitude, :longitude, :name, :area, :seedAddress, :show_features, :show_visits, :neigh
 
   def show_features
     self.object.park_features.map do |p_f|
