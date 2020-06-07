@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::API
-    before_action :authorized
+    before_action :authorized, except: [:fallback_index_html]
+
+    def fallback_index_html
+        render :file => 'public/index.html'
+    end
 
     def encode_token(payload)
         # payload => { beef: 'steak' }

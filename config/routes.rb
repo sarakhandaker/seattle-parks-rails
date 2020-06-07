@@ -14,4 +14,10 @@ Rails.application.routes.draw do
       delete 'saved_park/:id', to: 'saved_parks#destroy'
     end
   end
+
+
+get '*path', to: "application#fallback_index_html", constraints: ->(request) do
+!request.xhr? && request.format.html?
+end
+
 end

@@ -40,7 +40,7 @@ This project uses Ruby and Rails with a postgres database on the back end, and J
     * User can see a specific Park and its details 
 
 * Saved List
-    * /User can save parks they want to visit 
+    * User can save parks they want to visit 
 
 * Visits
     * User can post a new visit to a park (with comments, rating)
