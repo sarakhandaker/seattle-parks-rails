@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :address, :email, :show_visits, :saved_list :latitude, :longitude
+  attributes :id, :username, :address, :email, :show_visits, :saved_list, :latitude, :longitude
   def show_visits
     self.object.visits.map do |v|
       {comment: v.comment,
