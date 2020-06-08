@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-    before_action :authorized, except: [:fallback_index_html, :current_user]
+    before_action :authorized, except: [:fallback_index_html]
 
     def fallback_index_html
         render :file => 'public/index.html'

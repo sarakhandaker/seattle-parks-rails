@@ -5,8 +5,9 @@ class Api::V1::ParksController < ApplicationController
         if current_user
             parks=Park.list_by_distance(current_user)
         else 
-            parks=Park.all
+            parks=Park.all.sort_by{|park| park.name}
         end
+
         render json: parks.to_json( :include => [:features => {:only => :name}], :except => [:updated_at, :created_at, :address]), status: :accepted
     end
 
