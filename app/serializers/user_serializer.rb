@@ -6,7 +6,7 @@ class UserSerializer < ActiveModel::Serializer
       date: v.date,
       username: v.user.username,
       rating: v.rating,
-      park: v.park.name
+      park: v.park.name,
       id: v.id
       }
     end
