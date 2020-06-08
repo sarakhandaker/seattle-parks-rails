@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       patch '/users/:id', to: 'users#update'
       post 'saved_park', to: 'saved_parks#create'
       delete 'saved_park/:id', to: 'saved_parks#destroy'
+      delete 'visit/:id', to: 'visit#destroy'
     end
   end
 

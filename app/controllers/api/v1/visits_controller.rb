@@ -13,6 +13,10 @@ class Api::V1::VisitsController < ApplicationController
         
     end
 
+    def destroy
+      Visit.find(params[:id]).destroy
+    end
+    
     private
  
     def visit_params
