@@ -17,4 +17,8 @@ class Park < ApplicationRecord
             return results.suburb
         end
     end
+
+    def self.list_by_distance(user)
+        self.all.sort_by{|store| store.distance_to(user) }
+    end
 end

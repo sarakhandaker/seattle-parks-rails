@@ -2,7 +2,11 @@ class Api::V1::ParksController < ApplicationController
     skip_before_action :authorized
 
     def index 
-        parks=Park.all
+        if current_user
+            parks=Park.list_by_distance(current_user)
+        else 
+            parks=Park.all
+        end
         render json: parks.to_json( :include => [:features => {:only => :name}], :except => [:updated_at, :created_at, :address]), status: :accepted
     end
 

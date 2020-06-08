@@ -46,7 +46,7 @@ This project uses Ruby and Rails with a postgres database on the back end, and J
     * User can post a new visit to a park (with comments, rating)
     * /User can plan a visit in the future
     * User can see and /edit all past visits
-    * /User can delete upcoming visit
+    * User can delete a visit
 
 * Weather
     * User can see the upcoming weather 
