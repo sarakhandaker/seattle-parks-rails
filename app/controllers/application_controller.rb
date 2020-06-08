@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-    before_action :authorized, except: [:fallback_index_html]
+    before_action :authorized, except: [:fallback_index_html, :current_user]
 
     def fallback_index_html
         render :file => 'public/index.html'
@@ -31,7 +31,6 @@ class ApplicationController < ActionController::API
 
     def current_user
         if decoded_token
-            # decoded_token=> [{"user_id"=>2}, {"alg"=>"HS256"}] or nil
             user_id = decoded_token[0]['user_id']
             @user = User.find_by(id: user_id)
         end
