@@ -10,13 +10,18 @@ class Api::V1::VisitsController < ApplicationController
     end
 
     def update 
-        
+        @visit = Visit.find(params[:id])
+        if @visit.update(visit_params)
+          render json: @visit, status: :created
+        else
+          render json: { error: @visit.errors }, status: :not_acceptable
+        end
     end
 
     def destroy
       Visit.find(params[:id]).destroy
     end
-    
+
     private
  
     def visit_params
