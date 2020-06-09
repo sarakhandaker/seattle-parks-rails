@@ -1,5 +1,5 @@
 class ParkSerializer < ActiveModel::Serializer
-  attributes :id, :latitude, :longitude, :name, :area, :seedAddress, :show_features, :show_visits, :neigh
+  attributes :id, :latitude, :longitude, :name, :area, :seedAddress, :show_features, :show_visits, :neighborhood
 
   def show_features
     self.object.park_features.map do |p_f|
@@ -17,10 +17,6 @@ class ParkSerializer < ActiveModel::Serializer
       rating: v.rating
       }
     end
-  end
-
-  def neigh
-    self.object.neighborhood
   end
 
 end
