@@ -7,7 +7,6 @@ class Api::V1::ParksController < ApplicationController
         else 
             parks=Park.all.sort_by{|park| park.name}
         end
-
         render json: parks.to_json( :include => [:features => {:only => :name}], :except => [:updated_at, :created_at, :address]), status: :accepted
     end
 
