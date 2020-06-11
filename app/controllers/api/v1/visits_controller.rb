@@ -25,7 +25,7 @@ class Api::V1::VisitsController < ApplicationController
     private
  
     def visit_params
-      params.require(:visit).permit(:rating, :user_id, :park_id, :comment, :date)
+      params.require(:visit).permit(:rating, :user_id, :park_id, :comment, :date, :completed)
     end
 
 end

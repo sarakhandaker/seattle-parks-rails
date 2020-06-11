@@ -7,7 +7,8 @@ class UserSerializer < ActiveModel::Serializer
       username: v.user.username,
       rating: v.rating,
       park: v.park.name,
-      id: v.id
+      id: v.id,
+      completed: v.completed
       }
     end
   end

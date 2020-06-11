@@ -14,7 +14,8 @@ class ParkSerializer < ActiveModel::Serializer
       {comment: v.comment,
       date: v.date,
       username: v.user.username,
-      rating: v.rating
+      rating: v.rating,
+      completed: v.completed
       }
     end
   end
