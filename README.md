@@ -36,7 +36,7 @@ This project uses Ruby and Rails with a postgres database on the back end, and J
 
 * Parks
     * User can see a list of Seattle Parks (With Maps)
-    * User can filter through parks by /neighbouhood, /area, features, /already visited
+    * User can filter through parks by neighbouhood, features, /already visited
     * User can see a specific Park and its details 
 
 * Saved List
@@ -44,8 +44,8 @@ This project uses Ruby and Rails with a postgres database on the back end, and J
 
 * Visits
     * User can post a new visit to a park (with comments, rating)
-    * /User can plan a visit in the future
-    * User can see and /edit all past visits
+    * User can plan a visit in the future
+    * User can see and edit all past visits
     * User can delete a visit
 
 * Weather
@@ -54,7 +54,7 @@ This project uses Ruby and Rails with a postgres database on the back end, and J
 * Data 
     * /User can see the busiest parks (density)
     * /User can see data on visits vs weather 
-    * /User can see what percentage of the parks they have visited
+    * User can see what percentage of the parks they have visited
 
 ## Color Pallete
 #2A3C2B
