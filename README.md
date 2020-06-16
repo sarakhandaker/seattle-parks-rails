@@ -6,8 +6,12 @@ This Seattle Parks Application offers information on parks in the city of Seattl
 
 This application hopes to inspire users to explore new parks in the city while staying safe during COVID-19.
 
+## GitHub Repos
+* Front-end: https://github.com/sarakhandaker/seattle-parks-react
+* Back-end: https://github.com/sarakhandaker/seattle-parks-rails
+
 ## Technologies Used
-This project uses Ruby and Rails with a postgres database on the back end, and JavaScript, React, CSS and HTML on the front end with JWT for authentication.
+This project uses Ruby and Rails with a postgres database on the back-end, and JavaScript, React, Redux, CSS and HTML on the front-end with JWT for authentication.
 * GeoCoder for geolocating
 * Bootstrap for CSS 
 * Chart.js for Graphs 
@@ -15,7 +19,6 @@ This project uses Ruby and Rails with a postgres database on the back end, and J
 * Weather API: https://www.metaweather.com/
     * woeid=2490383 for Seattle, WA
 * Data from: http://data-seattlecitygis.opendata.arcgis.com/
-
 * Ruby version '2.6.1'
 
 ## To Start
@@ -24,9 +27,6 @@ This project uses Ruby and Rails with a postgres database on the back end, and J
 * Database initialization
     * rails db:migrate
     * rails db:seed
-
-## Models
-![alt text](/data/Models/jpg)
 
 ## User Stories
 
@@ -56,20 +56,10 @@ This project uses Ruby and Rails with a postgres database on the back end, and J
     * /User can see data on visits vs weather 
     * User can see what percentage of the parks they have visited
 
-## Color Pallete
-#2A3C2B
-#2F4550
-#6B9080
-#A4C3B2
-#F6FFF8
-#DB7C00
-
 ## Trello 
-
 https://trello.com/b/BQ3YuPcK/mod-5-project
 
 ## Future Updates
-* Transit Information to Each Park
 * Google Maps Direction
 * Extras: Admin Account, notifications, new user walkthrough, share on social media, sounds, file uploads
 
