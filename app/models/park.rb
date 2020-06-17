@@ -38,4 +38,7 @@ class Park < ApplicationRecord
             0
         end
     end
+    def visit_length
+        self.visits.length
+    end
 end
