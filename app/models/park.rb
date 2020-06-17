@@ -21,4 +21,21 @@ class Park < ApplicationRecord
     def self.list_by_distance(user)
         self.all.sort_by{|park| park.distance_to(user) }
     end
+
+    def self.busiet
+        self.all.max_by{|park| park.visits.length}
+    end
+
+    def self.best_rated
+        self.all.max_by{|park| park.avg_rating}
+    end
+
+    def avg_rating
+        rated_visits= self.visits.select{|visit| visit.completed}
+        if rated_visits.length > 0
+        rated_visits.map{|visit| visit.rating}.reduce(0, :+)/rated_visits.length
+        else 
+            0
+        end
+    end
 end
