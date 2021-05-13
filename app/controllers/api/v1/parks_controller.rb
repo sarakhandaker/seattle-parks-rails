@@ -3,7 +3,7 @@ class Api::V1::ParksController < ApplicationController
 
     def index 
         if current_user
-            parks=Park.list_by_distance(current_user).paginate(:page => params[:page])
+            parks=Park.list_by_distance(current_user).paginate(:page => params[:page], per_page: 50)
         else 
             parks=Park.all.sort_by{|park| park.name}
         end
