@@ -5,7 +5,7 @@ class Api::V1::ParksController < ApplicationController
         if current_user
             parks=Park.list_by_distance(current_user).paginate(:page => params[:page], per_page: 50)
         else 
-            parks=Park.all.sort_by{|park| park.name}
+            parks=Park.all.sort_by{|park| park.name}.paginate(:page => params[:page], per_page: 50)
         end
         render json: parks.to_json( :methods => [:visit_length, :avg_rating], :include => [:features => {:only => :name}], :except => [:updated_at, :created_at, :address]), status: :accepted
     end
