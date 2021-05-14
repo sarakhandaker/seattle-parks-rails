@@ -21,8 +21,7 @@ class Api::V1::ParksController < ApplicationController
         end
         if (params[:feat].length !=0)
             features= params[:feat].split(",")
-            byebug
-            features.each{|feat| parks=parks.select{|park| park.features.name.include?(feat)}}
+            features.each {|feat| parks=parks.select{|park| park.features.map{|feat| feat.name}.include?(feat)} }
         end
         render json: parks.to_json( :methods => [:visit_length, :avg_rating], :include => [:features => {:only => :name}], :except => [:updated_at, :created_at, :address]), status: :accepted
     end
