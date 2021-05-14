@@ -3,9 +3,26 @@ class Api::V1::ParksController < ApplicationController
 
     def index 
         if current_user
-            parks=Park.list_by_distance(current_user)
+            # parks=Park.list_by_distance(current_user).paginate(:page => params[:page], per_page: 50)
+            parks=Park.paginate(:page => params[:page], per_page: 30)
         else 
-            parks=Park.all.sort_by{|park| park.name}
+            parks=Park.paginate(:page => params[:page], per_page: 30)
+        end
+        render json: parks.to_json( :methods => [:visit_length, :avg_rating], :include => [:features => {:only => :name}], :except => [:updated_at, :created_at, :address]), status: :accepted
+    end
+
+    def search
+        parks=Park.all
+        if (params[:name].length !=0)
+            parks=parks.select{|park| park.name.include?(params[:name].upcase)}
+        end
+        if (params[:neigh] != "All")
+            parks=parks.select{|park| park.neighborhood == params[:neigh]}
+        end
+        if (params[:feat].length !=0)
+            features= params[:feat].split(",")
+            byebug
+            features.each{|feat| parks=parks.select{|park| park.features.name.include?(feat)}}
         end
         render json: parks.to_json( :methods => [:visit_length, :avg_rating], :include => [:features => {:only => :name}], :except => [:updated_at, :created_at, :address]), status: :accepted
     end

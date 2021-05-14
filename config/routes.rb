@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
       get '/parks', to: 'parks#index'
+      get '/searchparks', to: 'parks#search'
       get '/parks/:id', to: 'parks#show'
       post '/visits', to: 'visits#create'
       patch '/visits/:id', to: 'visits#update'
