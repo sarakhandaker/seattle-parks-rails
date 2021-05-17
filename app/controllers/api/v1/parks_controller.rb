@@ -3,10 +3,8 @@ class Api::V1::ParksController < ApplicationController
     skip_before_action :authorized
 
     def index 
-        byebug
         if current_user
-            byebug
-            parks=Park.list_by_distance(current_user).paginate(:page => params[:page], per_page: 50)
+            parks=Park.list_by_distance(current_user).paginate(:page => params[:page], per_page: 30)
         else 
             parks=Park.reorder("name").paginate(:page => params[:page], per_page: 30)
         end
