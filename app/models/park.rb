@@ -18,7 +18,7 @@ class Park < ApplicationRecord
         end
     end
 
-    def self.list_by_distance(user)
+    def self.list_by_distance(user, page)
         self.all.sort_by{|park| park.distance_to(user) }
     end
 

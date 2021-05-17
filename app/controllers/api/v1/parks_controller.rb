@@ -4,9 +4,9 @@ class Api::V1::ParksController < ApplicationController
     def index 
         if current_user
             # parks=Park.list_by_distance(current_user).paginate(:page => params[:page], per_page: 50)
-            parks=Park.paginate(:page => params[:page], per_page: 30)
+            parks=Park
         else 
-            parks=Park.paginate(:page => params[:page], per_page: 30)
+            parks=Park.paginate(:page => params[:page], per_page: 30, , order: 'name')
         end
         render json: parks.to_json( :methods => [:visit_length, :avg_rating], :include => [:features => {:only => :name}], :except => [:updated_at, :created_at, :address]), status: :accepted
     end
